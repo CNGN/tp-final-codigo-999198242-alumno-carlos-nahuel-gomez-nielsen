@@ -8,7 +8,7 @@ import { UserProvider } from './context/UserContext'
 // importacion de estilos
 import "./styles/components/Home.css"
 import "./styles/components/Header.css"
-import "./styles/components/Dashboard.css"
+
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>

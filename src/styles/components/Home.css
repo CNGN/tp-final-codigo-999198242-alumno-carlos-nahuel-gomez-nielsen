@@ -27,6 +27,14 @@
 }
 
 
+.seccion-porqueelegirnos h2,
+h3,
+p {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+}
+
+
 .seccion-productos {
     background-color: aqua;
 
@@ -37,9 +45,20 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 10px;
 
 }
 
+.presentacion-productos h2 {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: rgb(152, 69, 194);
+
+}
+
+.presentacion-productos p {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: rgb(1, 1, 161);
+}
 
 .productos {
     display: grid;
@@ -49,4 +68,48 @@
 
 .datos-productos {
     background-color: rgba(255, 158, 3, 0.936);
+}
+
+
+.datos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+}
+
+
+
+.datos h2 {
+    text-align: center;
+
+}
+
+.datos p {
+    text-align: center;
+
+}
+
+.actualizar-borrar-producto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+
+.actualizar-boton-producto {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    background-color: rgb(180, 247, 46);
+
+}
+
+.Borrar-boton-producto {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    background-color: rgb(247, 237, 46);
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+
 }

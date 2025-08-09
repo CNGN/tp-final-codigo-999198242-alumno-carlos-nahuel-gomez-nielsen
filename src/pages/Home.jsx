@@ -155,24 +155,24 @@ const Home = () => {
                 value={imageEdit}
                 onChange={(e) => setImageEdit(e.target.value)}
               />
-              <button>Actualizar</button>
+              <button className="actualizar-boton-popup">Actualizar</button>
             </form>
           </section>
         }
 
         <div className="productos">
           {
-            products.map((product) => <div className="datos-productos"><div key={product.id}>
+            products.map((product) => <div className="datos-productos"><div className="datos" key={product.id}>
               <h2 key={product.id}>{product.title}</h2>
-              <img width="80px" src={product.image} alt={`Imagen de ${product.title}`} />
               <p>${product.price}</p>
-              <p>{product.description}</p>
+              <img width="80px" src={product.image} alt={`Imagen de ${product.title}`} />
               <p><strong>{product.category}</strong></p>
+              <p>{product.description}</p>
             </div>
               {
-                user && <div>
-                  <button onClick={() => handleOpenEdit(product)}>Actualizar</button>
-                  <button onClick={() => handleDelete(product.id)}>Borrar</button>
+                user && <div className="actualizar-borrar-producto">
+                  <button onClick={() => handleOpenEdit(product)} className="actualizar-boton-producto">Actualizar</button>
+                  <button onClick={() => handleDelete(product.id)} className="Borrar-boton-producto">Borrar</button>
                 </div>
               }
             </div>)

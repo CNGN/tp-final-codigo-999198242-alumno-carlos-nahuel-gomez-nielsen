@@ -113,3 +113,22 @@ p {
 
 
 }
+
+
+.popup-edit h2 {
+    text-align: center;
+}
+
+
+.formulario-popup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.popup-edit button,
+input,
+textarea {
+    margin-bottom: 10px;
+
+}

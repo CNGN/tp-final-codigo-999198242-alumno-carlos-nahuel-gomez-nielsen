@@ -123,9 +123,9 @@ const Home = () => {
       <section className="seccion-productos">
         {
           showPopup && <section className="popup-edit">
-            <h2>Editando producto.</h2>
-            <button onClick={() => setShowPopup(null)}>Cerrar</button>
-            <form onSubmit={handleUpdate}>
+            <h2>Editando producto...</h2>
+
+            <form className="formulario-popup" onSubmit={handleUpdate}>
               <input
                 type="text"
                 placeholder="Ingrese el titulo"
@@ -155,7 +155,8 @@ const Home = () => {
                 value={imageEdit}
                 onChange={(e) => setImageEdit(e.target.value)}
               />
-              <button className="actualizar-boton-popup">Actualizar</button>
+              <button>Actualizar</button>
+              <button onClick={() => setShowPopup(null)}>Cerrar</button>
             </form>
           </section>
         }

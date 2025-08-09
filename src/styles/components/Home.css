@@ -1,5 +1,52 @@
-h1 {
+.seccion-bienvenida {
+    background-color: rgb(179, 83, 83);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+
+}
+
+.titulo-bienvenida {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: rgb(148, 230, 230);
+}
+
+.parrafo-bienvenida {
+    color: antiquewhite;
+}
 
 
+
+.seccion-porqueelegirnos {
+    background-color: rgb(201, 139, 64);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+
+.seccion-productos {
+    background-color: aqua;
+
+}
+
+.presentacion-productos {
+    background-color: aqua;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+
+.productos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    gap: 20px;
+}
+
+.datos-productos {
+    background-color: rgba(255, 158, 3, 0.936);
 }

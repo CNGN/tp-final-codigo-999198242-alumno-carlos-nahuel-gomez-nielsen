@@ -10,7 +10,7 @@ const Header = () => {
 
   return (
     <header style={{ backgroundColor: "lightblue" }}>
-      <section class="hero">
+      <section className="hero">
         <div>
           <h1>Compras S.A.</h1>
         </div>

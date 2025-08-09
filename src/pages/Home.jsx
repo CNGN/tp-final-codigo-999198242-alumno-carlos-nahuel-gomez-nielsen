@@ -85,12 +85,14 @@ const Home = () => {
 
   return (
     <Layout>
-      <section>
-        <h1>Bienvenido a Nuestra Tienda</h1>
-        <p>Descubrí una selección exclusiva de productos para vos. Calidad, confianza y atención personalizada.</p>
+      <section className="seccion-bienvenida">
+        <div>
+          <h1 className="titulo-bienvenida">Bienvenido a Nuestra Tienda</h1>
+          <p className="parrafo-bienvenida">Descubrí una selección exclusiva de productos para vos. Calidad, confianza y atención personalizada.</p>
+        </div>
       </section>
 
-      <section>
+      <section className="seccion-porqueelegirnos">
         <h2>¿Por qué elegirnos?</h2>
         <ul>
           <li>
@@ -108,11 +110,17 @@ const Home = () => {
         </ul>
       </section>
 
-      <section>
-        <h2>Nuestros productos</h2>
-        <p>Elegí entre nuestras categorías más populares.</p>
 
 
+      <section className="presentacion-productos">
+        <div>
+          <h2>Nuestros productos</h2>
+          <p>Elegí entre nuestras categorías más populares.</p>
+        </div>
+      </section>
+
+
+      <section className="seccion-productos">
         {
           showPopup && <section className="popup-edit">
             <h2>Editando producto.</h2>
@@ -152,14 +160,15 @@ const Home = () => {
           </section>
         }
 
-        <div>
+        <div className="productos">
           {
-            products.map((product) => <div key={product.id}>
+            products.map((product) => <div className="datos-productos"><div key={product.id}>
               <h2 key={product.id}>{product.title}</h2>
               <img width="80px" src={product.image} alt={`Imagen de ${product.title}`} />
               <p>${product.price}</p>
               <p>{product.description}</p>
               <p><strong>{product.category}</strong></p>
+            </div>
               {
                 user && <div>
                   <button onClick={() => handleOpenEdit(product)}>Actualizar</button>

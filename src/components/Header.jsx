@@ -10,7 +10,11 @@ const Header = () => {
 
   return (
     <header style={{ backgroundColor: "lightblue" }}>
-      <img src="https://upload.wikimedia.org/wikipedia/commons/8/85/Logo-Test.png" alt="imagen de logo" />
+      <section class="hero">
+        <div>
+          <h1>Compras S.A.</h1>
+        </div>
+      </section>
       <nav>
         <ul>
           {/* Cambiar elementos a por componentes Link de react-router-dom */}

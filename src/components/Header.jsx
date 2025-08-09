@@ -9,12 +9,7 @@ const Header = () => {
   }
 
   return (
-    <header style={{ backgroundColor: "lightblue" }}>
-      <section className="hero">
-        <div>
-          <h1>Compras S.A.</h1>
-        </div>
-      </section>
+    <header>
       <nav>
         <ul>
           {/* Cambiar elementos a por componentes Link de react-router-dom */}

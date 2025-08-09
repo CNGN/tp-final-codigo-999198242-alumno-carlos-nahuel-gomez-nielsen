@@ -34,10 +34,9 @@ const Register = () => {
 
   return (
     <Layout>
-      <h1>Registrate</h1>
-
       <section>
-        <h2>Hola, bienvenido</h2>
+        <h1>Registracion de Usuario</h1>
+        <h2>Hola, aqui te registras por primera vez</h2>
         <form onSubmit={handleSubmit}>
           <div>
             <label>Username:</label>

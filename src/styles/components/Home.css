@@ -1,3 +1,21 @@
+.hero {
+    background-color: burlywood;
+    height: 100vh;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+h1 {
+    color: black;
+    font-size: 50px;
+}
+
+
+
+
 .seccion-bienvenida {
     background-color: rgb(179, 83, 83);
     display: flex;

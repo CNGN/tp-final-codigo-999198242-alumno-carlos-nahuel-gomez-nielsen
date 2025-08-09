@@ -8,6 +8,10 @@ import { UserProvider } from './context/UserContext'
 // importacion de estilos
 import "./styles/components/Home.css"
 import "./styles/components/Header.css"
+import "./styles/components/Register.css"
+import "./styles/components/Login.css"
+
+
 
 
 createRoot(document.getElementById('root')).render(

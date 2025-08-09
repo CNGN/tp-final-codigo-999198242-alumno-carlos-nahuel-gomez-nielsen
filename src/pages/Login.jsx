@@ -25,11 +25,13 @@ const Login = () => {
 
   return (
     <Layout>
-      <h1>Inicia sesión</h1>
-
       <section>
+        <h1>Inicia sesión</h1>
         <h2>Hola, bienvenido de nuevo</h2>
-        <p>johnd, m38rmF$</p>
+        <div className="usuario-maestro">
+          <p>johnd</p>
+          <p>m38rmF$</p>
+        </div>
         <form onSubmit={handleLogin}>
           <div>
             <label>Nombre de usuario:</label>

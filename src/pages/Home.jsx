@@ -85,6 +85,11 @@ const Home = () => {
 
   return (
     <Layout>
+      <section className="hero">
+        <div>
+          <h1>Compras S.A.</h1>
+        </div>
+      </section>
       <section className="seccion-bienvenida">
         <div>
           <h1 className="titulo-bienvenida">Bienvenido a Nuestra Tienda</h1>

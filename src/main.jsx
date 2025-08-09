@@ -2,15 +2,14 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { RouterApp } from './router/RouterApp'
 
-import "./index.css"
 import { UserProvider } from './context/UserContext'
 
 // importacion de estilos
-import "./styles/components/Home.css"
+import "./styles/pages/Home.css"
 import "./styles/components/Header.css"
-import "./styles/components/Register.css"
-import "./styles/components/Login.css"
-
+import "./styles/pages/Register.css"
+import "./styles/pages/Login.css"
+import "./styles/components/Footer.css"
 
 
 

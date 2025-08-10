@@ -4,6 +4,7 @@
     align-items: center;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     background-color: burlywood;
+    height: 85vh;
 
 }
 
@@ -12,6 +13,17 @@
     background-color: azure;
     margin-bottom: 10px;
 }
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    background-color: burlywood;
+    text-align: center;
+}
+
+
 
 button {
     margin-bottom: 10px;

@@ -33,7 +33,8 @@ const Login = () => {
         </div>
         <form className="login-form" onSubmit={handleLogin}>
           <div className="login-div-usuario">
-            <label className="login-label-usuario">Usuario: </label>
+            <p>Usuario:</p>
+            <label className="login-label-usuario"></label>
             <input
               className="login-input-usuario"
               type="text"
@@ -41,7 +42,8 @@ const Login = () => {
               value={username} />
           </div>
           <div className="login-div-contraseña">
-            <label className="login-label-contraseña">Contraseña: </label>
+            <p>Contraseña:</p>
+            <label className="login-label-contraseña"></label>
             <input
               className="login-input-contraseña"
               type="password"

@@ -52,39 +52,39 @@ const Dashboard = () => {
   return (
     <Layout>
       <section className="dashboard-section">
-        <h1>Panel de Administración</h1>
-        <h2 className="dashboard-">Cargar nuevo producto</h2>
+        <h1 className="dashboard-h1" >Panel de Administración</h1>
+        <h2 className="dashboard-h2">Cargar nuevo producto</h2>
         <form className="dashboard-form" onSubmit={handleSubmit}>
-          <div className="dashboard-" >
+          <div className="dashboard-div-producto" >
             <p className="dashboard-p-producto">Nombre del producto:</p>
-            <label className="dashboard-1" ></label>
-            <input className="dashboard-" type="text" name="nombre" onChange={(e) => setName(e.target.value)} value={name} />
+            <label className="dashboard-label-producto" ></label>
+            <input className="dashboard-input-producto" type="text" name="nombre" onChange={(e) => setName(e.target.value)} value={name} />
           </div>
 
-          <div className="dashboard-">
+          <div className="dashboard-div-precio">
             <p className="dashboard-p-precio">Precio:</p>
-            <label className="dashboard-"></label>
-            <input className="dashboard-" type="number" name="precio" onChange={(e) => setPrice(e.target.value)} value={price} />
+            <label className="dashboard-label-precio"></label>
+            <input className="dashboard-input-precio" type="number" name="precio" onChange={(e) => setPrice(e.target.value)} value={price} />
           </div>
 
-          <div className="dashboard-">
+          <div className="dashboard-div-descripcion">
             <p className="dashboard-p-descripcion">Descripción:</p>
-            <label className="dashboard-"></label>
-            <textarea className="dashboard-" name="descripcion" rows="4" onChange={(e) => setDescription(e.target.value)} value={description} />
+            <label className="dashboard-label-descripcion"></label>
+            <textarea className="dashboard-textarea-descripcion" name="descripcion" rows="4" onChange={(e) => setDescription(e.target.value)} value={description} />
           </div>
 
           {
             error && <p className="dashboard-error">{error}</p>
           }
 
-          <button className="dashboard-" >Guardar producto</button>
+          <button className="dashboard-button" >Guardar producto</button>
         </form>
 
         {
-          product && <div>
-            <h3>{product.title}</h3>
-            <p>${product.price}</p>
-            <p>{product.description}</p>
+          product && <div className="dashboard-div-prod-recibido">
+            <h3 className="dashboard-titulo-prod-recibido">{product.title}</h3>
+            <p className="dashboard-precio-prod-recibido">${product.price}</p>
+            <p className="dashboard-description-prod-recibido">{product.description}</p>
           </div>
         }
       </section>

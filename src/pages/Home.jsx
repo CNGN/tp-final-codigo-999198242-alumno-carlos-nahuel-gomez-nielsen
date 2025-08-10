@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { Layout } from "../components/Layout"
 import { useAuth } from "../context/UserContext"
 
+
 const Home = () => {
   const [products, setProducts] = useState([])
   const [showPopup, setShowPopup] = useState(null)
@@ -12,6 +13,12 @@ const Home = () => {
   const [categoryEdit, setCategoryEdit] = useState("")
   const [imageEdit, setImageEdit] = useState("")
 
+  // PARA LA BARRA DE BUSQUEDA DE PRODUCTOS
+  // estados para la barra de busqueda
+  // el valor inicial es string vacio
+  // cuando tiene valor contiene 
+  const [BusquedaProductos, setBusquedaProductos] = useState("")
+
   // simulando existencia del usuario, proximamente este estado será global
   const { user } = useAuth()
 
@@ -21,7 +28,10 @@ const Home = () => {
     setProducts(data)
   }
 
-  // El array vacío (dependencias) espera a que ejecute el return del jsx. Si tiene algo, useEffect se va a ejecutar cada vez que se modifique lo que este dentro de la dependencia.
+  // El array vacío (dependencias) espera a que
+  // ejecute el return del jsx. Si tiene algo,
+  // useEffect se va a ejecutar cada vez que se
+  // modifique lo que este dentro de la dependencia.
   useEffect(() => {
     fetchingProducts()
   }, [])
@@ -83,6 +93,36 @@ const Home = () => {
     }
   }
 
+
+
+
+
+  // FUNCION ENCARGADA DEL FILTRADO DE PRODUCTOS 
+  // PARA LA BARRA DE BUSQUEDA PARCIAL DE PRODUCTOS
+  const filtradoProductos = products.filter(product => product.title.toLowerCase().includes(BusquedaProductos.toLowerCase()))
+  // products  ES EL ARRAY (ESTADO) DE PRODUCTOS.
+  // filter   FILTRO SOBRE ESTE ESTADO. Y ME DEVUELVE UN ARRAY DESPUES DE LA CONDICION.
+  // A filter LE DOY UNA FUNCION CALLBACK QUE SE EJECUTA CON CADA PRODUCTO.
+  // ESTA FUNCION ES:   product => product.title.toLowerCase().includes(searchTerm.toLowerCase())
+  // ESTA FUNCION DEVUELVE TRUE SI ENCUENTRA COINCIDENCIA ENTRE EL VALOR DEL INPUT Y LOS NOMBRES DEL PRODUCTO
+  // AL SER TRUE SE INCLUYE AL NUEVO ARRAY DE FILTER.
+  // DA FALSO CUANDO NO HAY COINCIDENCIA ENTRE TITULOS. EXCLUYE DEL NUEVO ARRAY EL PRODUCTO.
+
+  //    product.title.toLowerCase()
+  // DEL ESTADO product OBTENGO LOS TITULOS (title) Y LO PASO A MINUSCULA .toLowerCase()
+  // AL PASARLO A MINUSCULA ME EVITO ERRORES POR PARTE DEL USUARIO QUE GENERE PROBLEMAS EN LA BUSQUEDA DEL PRODUCTO.
+  // EVITANDO LA DISCRIMINACION ENTRE MINUSCULA Y MAYUSCULAS.
+
+  //    BusquedaProductos.toLowerCase()
+  // PASO A MINUSCULA LA PALABRA QUE OBTENGO DEL INPUT. DEL USUARIO.
+
+  // CONDICION
+
+  // .includes()
+  // ESTA ES LA CONDICION QUE COMPARA EL TITULO DEL ARRAY (ESTADO) DE PRODUCTOS Y LA PALABRA QUE COLOCO EL USUARIO.
+  // DEVUELVE TRUE SI HAY COINCIDENCIA.
+  // DEVUELVE FALSE SI NO HAY COINCIDENCIA.
+
   return (
     <Layout>
       <section className="hero">
@@ -122,8 +162,17 @@ const Home = () => {
           <h2>Nuestros productos</h2>
           <p>Elegí entre nuestras categorías más populares.</p>
         </div>
+        {/*PARA LA BARRA DE BUSQUEDA DE PRODUCTOS*/}
+        <h2>Busqueda de productos</h2>
+        <input
+          className="home-input"
+          type="text"
+          // ACTUALIZA EL VALOR DEL ESTADO CON EL VALOR ACTUAL DEL INPUT.
+          onChange={(e) => setBusquedaProductos(e.target.value)}
+          // EL VALOR DEL INPUT SIEMPRE VA A SER EL MISMO VALOR QUE TIENE EL ESTADO.
+          value={BusquedaProductos}
+        />
       </section>
-
 
       <section className="seccion-productos">
         {
@@ -166,9 +215,10 @@ const Home = () => {
           </section>
         }
 
+        {/*products.map*/}
         <div className="productos">
           {
-            products.map((product) => <div className="datos-productos"><div className="datos" key={product.id}>
+            filtradoProductos.map((product) => <div className="datos-productos"><div className="datos" key={product.id}>
               <h2 key={product.id}>{product.title}</h2>
               <p>${product.price}</p>
               <img width="80px" src={product.image} alt={`Imagen de ${product.title}`} />

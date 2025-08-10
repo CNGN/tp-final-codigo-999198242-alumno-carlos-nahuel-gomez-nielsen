@@ -13,6 +13,7 @@ import "./styles/pages/Register.css"
 import "./styles/pages/Login.css"
 import "./styles/pages/Home.css"
 import "./styles/pages/Dashboard.css"
+import "./styles/pages/Sobre-nosotros.css"
 
 
 

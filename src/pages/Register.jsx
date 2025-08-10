@@ -34,38 +34,41 @@ const Register = () => {
 
   return (
     <Layout>
-      <section className="Register">
-        <h1 className="Register">Registracion de Usuario</h1>
-        <h2 className="Register">Hola, aqui te registras por primera vez</h2>
-        <form className="Register" onSubmit={handleSubmit}>
-          <div className="Register">
-            <label className="Register">Username:</label>
+      <section className="register-section">
+        <h1 className="register">Registracion de Usuario</h1>
+        <h2 className="register">Hola, aqui te registras por primera vez</h2>
+        <form className="register-form" onSubmit={handleSubmit}>
+          <div className="register">
+            <p className="register-p-nombredeusuario">Username:</p>
+            <label className="register"></label>
             <input
-              className="Register"
+              className="register"
               type="text"
               onChange={(e) => setUsername(e.target.value)}
               value={username}
             />
           </div>
-          <div className="Register">
-            <label className="Register" >Correo electrónico:</label>
+          <div className="register">
+            <p className="register-p-correo">Correo electrónico:</p>
+            <label className="register" ></label>
             <input
-              className="Register"
+              className="register"
               type="email"
               onChange={(e) => setEmail(e.target.value)}
               value={email}
             />
           </div>
-          <div className="Register">
-            <label className="Register">Contraseña:</label>
+          <div className="register">
+            <p className="register-p-contraseña">Contraseña:</p>
+            <label className="register"></label>
             <input
-              className="Register"
+              className="register"
               type="password"
               onChange={(e) => setPassword(e.target.value)}
               value={password}
             />
           </div>
-          <button className="Register" >Ingresar</button>
+          <button className="register" >Ingresar</button>
         </form>
 
         {
@@ -80,3 +83,4 @@ const Register = () => {
 }
 
 export { Register }
+

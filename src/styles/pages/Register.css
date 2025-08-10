@@ -1,12 +1,14 @@
-section {
+.register-section {
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     background-color: burlywood;
+    height: 85vh;
 }
 
-form {
+.register-form {
     display: flex;
     flex-direction: column;
     align-items: center;

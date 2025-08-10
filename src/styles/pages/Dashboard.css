@@ -1,0 +1,16 @@
+.dashboard-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 10px;
+    height: 85vh;
+}
+
+
+.dashboard-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}

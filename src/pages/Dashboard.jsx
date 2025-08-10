@@ -51,31 +51,33 @@ const Dashboard = () => {
 
   return (
     <Layout>
-      <h1>Panel de Administración</h1>
-
-      <section>
-        <h2>Cargar nuevo producto</h2>
-        <form onSubmit={handleSubmit}>
-          <div>
-            <label>Nombre del producto:</label>
-            <input type="text" name="nombre" onChange={(e) => setName(e.target.value)} value={name} />
+      <section className="dashboard-section">
+        <h1>Panel de Administración</h1>
+        <h2 className="dashboard-">Cargar nuevo producto</h2>
+        <form className="dashboard-form" onSubmit={handleSubmit}>
+          <div className="dashboard-" >
+            <p className="dashboard-p-producto">Nombre del producto:</p>
+            <label className="dashboard-1" ></label>
+            <input className="dashboard-" type="text" name="nombre" onChange={(e) => setName(e.target.value)} value={name} />
           </div>
 
-          <div>
-            <label>Precio:</label>
-            <input type="number" name="precio" onChange={(e) => setPrice(e.target.value)} value={price} />
+          <div className="dashboard-">
+            <p className="dashboard-p-precio">Precio:</p>
+            <label className="dashboard-"></label>
+            <input className="dashboard-" type="number" name="precio" onChange={(e) => setPrice(e.target.value)} value={price} />
           </div>
 
-          <div>
-            <label>Descripción:</label>
-            <textarea name="descripcion" rows="4" onChange={(e) => setDescription(e.target.value)} value={description} />
+          <div className="dashboard-">
+            <p className="dashboard-p-descripcion">Descripción:</p>
+            <label className="dashboard-"></label>
+            <textarea className="dashboard-" name="descripcion" rows="4" onChange={(e) => setDescription(e.target.value)} value={description} />
           </div>
 
           {
-            error && <p className="error">{error}</p>
+            error && <p className="dashboard-error">{error}</p>
           }
 
-          <button>Guardar producto</button>
+          <button className="dashboard-" >Guardar producto</button>
         </form>
 
         {

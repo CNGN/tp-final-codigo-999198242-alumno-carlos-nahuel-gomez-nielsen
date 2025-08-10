@@ -1,16 +1,13 @@
 .dashboard-section {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    text-align: center;
-    margin-top: 10px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    background-color: burlywood;
     height: 85vh;
 }
 
 
 .dashboard-form {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     text-align: center;
 }

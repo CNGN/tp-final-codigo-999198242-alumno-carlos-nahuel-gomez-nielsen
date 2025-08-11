@@ -219,7 +219,7 @@ const Home = () => {
         <div className="productos">
           {
             filtradoProductos.map((product) => <div className="datos-productos"><div className="datos" key={product.id}>
-              <h2 key={product.id}>{product.title}</h2>
+              <h2>{product.title}</h2>
               <p>${product.price}</p>
               <img width="80px" src={product.image} alt={`Imagen de ${product.title}`} />
               <p><strong>{product.category}</strong></p>

@@ -1,17 +1,39 @@
 import { useState } from "react"
 import { Layout } from "../components/Layout"
 
+//
+import { useAuth } from "../context/UserContext"
+
+//
+import { useNavigate } from "react-router-dom"
+
 const Register = () => {
   const [username, setUsername] = useState("")
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [error, setError] = useState("")
   const [success, setSuccess] = useState("")
+  //
+  const { register } = useAuth()
+
+  //
+  const nagivate = useNavigate()
 
   const handleSubmit = (e) => {
     e.preventDefault()
+
+    const id = 6
+
+    // envio de datos a funcion register en UserContext.jsx
+    register(id, username, email, password)
+
+    // limpieza
     setError("")
     setSuccess("")
+
+    // redirigo a la pagina home
+    nagivate("/")
+
 
     if (!username || !email || !password) {
       setError("Debes completar todos los campos")
@@ -19,10 +41,12 @@ const Register = () => {
     }
 
     const newUser = {
+      id,
       username,
       email,
       password
     }
+
 
     console.log(newUser)
     setSuccess("Usuario registrado con éxito")

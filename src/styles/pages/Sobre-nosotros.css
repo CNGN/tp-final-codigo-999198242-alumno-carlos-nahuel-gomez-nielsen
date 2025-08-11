@@ -23,3 +23,7 @@
     text-align: center;
     background-color: burlywood;
 }
+
+@media (max-width: 480px) {}
+
+@media (max-width: 880px) {}

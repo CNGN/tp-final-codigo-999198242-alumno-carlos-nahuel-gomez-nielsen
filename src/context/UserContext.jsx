@@ -29,22 +29,22 @@ const UserProvider = (props) => {
     setUser(null)
   }
 
-  const register = async (id, username, email, password) => {
-    console.log(id, username, email, password)
+  const register = async (username, email, password) => {
+    const idUser = crypto.randomUUID()
+    console.log(`id: ${idUser}, nombre de usuario: ${username}, correo: ${email}, password: ${password}`)
     try {
       const response = await fetch("https://fakestoreapi.com/users", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
         },
-        body: JSON.stringify({ id, username, email, password })
+        body: JSON.stringify({ idUser, username, email, password })
 
       })
       const data = await response.json()
       if (response.ok) {
         setUser(true)
         console.log(data)
-      } else {
       }
     }
     catch (error) {

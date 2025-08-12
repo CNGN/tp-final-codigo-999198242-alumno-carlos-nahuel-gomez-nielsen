@@ -6,8 +6,10 @@ import { useAuth } from "../context/UserContext"
 
 //
 import { useNavigate } from "react-router-dom"
+import { resolve } from "path"
 
 const Register = () => {
+  //const [id, setId] = useState("")
   const [username, setUsername] = useState("")
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
@@ -22,26 +24,40 @@ const Register = () => {
   const handleSubmit = (e) => {
     e.preventDefault()
 
-    const id = 6
 
-    // envio de datos a funcion register en UserContext.jsx
-    register(id, username, email, password)
+
 
     // limpieza
     setError("")
     setSuccess("")
 
-    // redirigo a la pagina home
-    nagivate("/")
+
 
 
     if (!username || !email || !password) {
       setError("Debes completar todos los campos")
       return
+    } else if (email.includes("@")) {
+      // el envio de datos y la rediccion a la pagina Home,
+      // lo dejo debajo de la condicion if.
+      // Que verifica si los campos de entrada estan vacios o no.
+
+      // envio de datos a funcion register en UserContext.jsx
+      register(username, email, password)
+
+      // redirigo a la pagina home
+      nagivate("/")
+
+    } else {
+      setError("Debe ser un correo con formato valido")
+      console.log("Debe ser un correo con formato valido")
+      return
     }
 
+
+
+
     const newUser = {
-      id,
       username,
       email,
       password
@@ -54,6 +70,8 @@ const Register = () => {
     setUsername("")
     setEmail("")
     setPassword("")
+
+
   }
 
   return (
@@ -96,10 +114,10 @@ const Register = () => {
         </form>
 
         {
-          error && <p style={{ color: "red" }}>{error}</p>
+          error && <p className="resgister-error">{error}</p>
         }
         {
-          success && <p style={{ color: "green" }}>{success}</p>
+          success && <p className="resgister-success">{success}</p>
         }
       </section>
     </Layout>

@@ -6,7 +6,8 @@ import { useAuth } from "../context/UserContext"
 
 //
 import { useNavigate } from "react-router-dom"
-import { resolve } from "path"
+
+//import { resolve } from "path"
 
 const Register = () => {
   //const [id, setId] = useState("")
@@ -37,23 +38,33 @@ const Register = () => {
     if (!username || !email || !password) {
       setError("Debes completar todos los campos")
       return
-    } else if (email.includes("@")) {
-      // el envio de datos y la rediccion a la pagina Home,
-      // lo dejo debajo de la condicion if.
-      // Que verifica si los campos de entrada estan vacios o no.
-
-      // envio de datos a funcion register en UserContext.jsx
-      register(username, email, password)
-
-      // redirigo a la pagina home
-      nagivate("/")
-
-    } else {
-      setError("Debe ser un correo con formato valido")
-      console.log("Debe ser un correo con formato valido")
-      return
     }
 
+    //
+    const correovalido = email.includes("@")
+    if (!correovalido) {
+      //setError("Debe poner un formato de correo valido")
+      console.log("Debe poner un formato de correo valido")
+      return
+    } else {
+      console.log("Formato de correo valido")
+    }
+
+    if (password.length <= 3) {
+      setError("Debe poner una contraseña con más larga")
+      return
+
+    }
+
+    // el envio de datos y la rediccion a la pagina Home,
+    // lo dejo debajo de la condicion if.
+    // Que verifica si los campos de entrada estan vacios o no.
+
+    // envio de datos a funcion register en UserContext.jsx
+    register(username, email, password)
+
+    // redirigo a la pagina home
+    nagivate("/")
 
 
 
@@ -125,4 +136,3 @@ const Register = () => {
 }
 
 export { Register }
-

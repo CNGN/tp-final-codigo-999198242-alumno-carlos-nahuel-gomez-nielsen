@@ -61,18 +61,15 @@ const Home = () => {
   const handleUpdate = async (e) => {
     e.preventDefault()
 
-    const updatedProduct = {
-      id: productToEdit.id,
-      title: titleEdit,
-      price: Number(priceEdit),
-      description: descriptionEdit,
-      category: categoryEdit,
-      image: imageEdit
-    }
+
 
     // validores de inputs del formulario para actulizar productos.
     const transporteDeErroresHome = []
-    if (!titleEdit) transporteDeErroresHome.push("Falta colocar titulo.")
+    if (!titleEdit) transporteDeErroresHome.push("Falta colocar titulo. ")
+    if (!priceEdit) transporteDeErroresHome.push("Falta colocar precio. ")
+    if (!descriptionEdit) transporteDeErroresHome.push("Falta colocar descripción. ")
+    if (!categoryEdit) transporteDeErroresHome.push("Falta colocar categoria. ")
+    if (!imageEdit) transporteDeErroresHome.push("Falta colocar imagen. ")
 
 
     if (transporteDeErroresHome.length > 0) {
@@ -82,6 +79,17 @@ const Home = () => {
     }
 
 
+    const updatedProduct = {
+      id: productToEdit.id,
+      title: titleEdit,
+      price: Number(priceEdit),
+      description: descriptionEdit,
+      category: categoryEdit,
+      image: imageEdit
+    }
+
+    setSuccess("Producto actualizado con exito")
+    setTimeout(() => setSuccess(""), 2000)
 
     try {
       const response = await fetch(`https://fakestoreapi.com/products/${productToEdit.id}`, {
@@ -108,8 +116,6 @@ const Home = () => {
     }
 
 
-    setTimeout(() => setSuccess("Producto actualizado con exito"), 2000)
-    setSuccess("")
   }
 
 
@@ -228,8 +234,10 @@ const Home = () => {
                 value={imageEdit}
                 onChange={(e) => setImageEdit(e.target.value)}
               />
-              {user && <p className="home-error">{error}</p>}
-              {user && <p className="home-success">{success}</p>}
+              {/*si el estado error tiene valor y .....*/}
+              {error && <p className="home-error">{error}</p>}
+              {/*si el estado success tiene valor y .....*/}
+              {success && <p className="home-success">{success}</p>}
               <button>Actualizar</button>
               <button onClick={() => setShowPopup(null)}>Cerrar</button>
             </form>

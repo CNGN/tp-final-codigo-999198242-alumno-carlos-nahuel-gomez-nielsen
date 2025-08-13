@@ -112,6 +112,8 @@ const Register = () => {
     if (transporteDeErrores.length > 0) {
       // se coloca el mensaje del array en el estado.
       setError(transporteDeErrores)
+      // lapso de tiempo en mostrarse el mensaje. dos segundos.
+      setTimeout(() => setError(""), 2000)
       // se detiene la continuacion del resto del codigo.
       return
     }

@@ -69,7 +69,7 @@ const Home = () => {
     if (!priceEdit) transporteDeErroresHome.push("Falta colocar precio. ")
     if (!descriptionEdit) transporteDeErroresHome.push("Falta colocar descripción. ")
     if (!categoryEdit) transporteDeErroresHome.push("Falta colocar categoria. ")
-    if (!imageEdit) transporteDeErroresHome.push("Falta colocar imagen. ")
+    if (!imageEdit) transporteDeErroresHome.push("Falta colocar imagen.")
 
 
     if (transporteDeErroresHome.length > 0) {

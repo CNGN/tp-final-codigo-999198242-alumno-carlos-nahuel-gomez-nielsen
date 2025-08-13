@@ -30,6 +30,24 @@ button {
 }
 
 
+
+.login-error {
+    color: red;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    border: 2px solid red;
+    font-weight: bold;
+    background-color: white;
+}
+
+.login-success {
+    color: green;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    border: 2px solid green;
+    font-weight: bold;
+    background-color: white;
+}
+
+
 @media (max-width: 480px) {}
 
 @media (max-width: 880px) {}

@@ -85,10 +85,13 @@ const Register = () => {
     if (!email) transporteDeErrores.push("Falta colocar la dirección. ")
     if (!password) transporteDeErrores.push("Falta colocar la contraseña.")
 
+    if (username && username.length <= 2) {
+      transporteDeErrores.push("El nombre de usuario debe tener más de dos caracteres. ")
+    }
 
     // condicion que verifica la cantidad de caracteres en la contraseña.
     // si hay contraseña y la contraseña es menor e igual a tres caracteres,
-    // se entra en el if.
+    // se entra en el if. si no hay contraseña en primer lugar, no entra en el if.
     if (password && password.length <= 3) {
       // se coloca el mensaje al array
       transporteDeErrores.push("La contraseña debe tener más de tres caracteres")

@@ -6,12 +6,35 @@ import { useNavigate } from "react-router-dom"
 const Login = () => {
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
+  const [error, setError] = useState("")
+  const [success, setSuccess] = useState("")
   const { login } = useAuth()
 
   const nagivate = useNavigate()
 
+
   const handleLogin = async (e) => {
     e.preventDefault()
+
+    // validador de campos
+    const transporteDeErroresLogin = []
+    if (!username) transporteDeErroresLogin.push("Falta colocar el nombre de usuario. ")
+    if (!password) transporteDeErroresLogin.push("Falta colocar la contraseña. ")
+
+    if (username && username.length <= 2) {
+      transporteDeErroresLogin.push("El nombre de usuario debe tener más de dos caracteres. ")
+    }
+    if (password && password.length <= 3) {
+      transporteDeErroresLogin.push("La contraseña debe tener más de tres caracteres. ")
+    }
+
+    if (transporteDeErroresLogin.length > 0) {
+      setError(transporteDeErroresLogin)
+      setTimeout(() => setError(""), 2000)
+      return
+    }
+    setSuccess("Ingreso exitoso")
+
     console.log({ username, password })
     const isLogin = await login(username, password)
 
@@ -50,6 +73,12 @@ const Login = () => {
               onChange={(e) => setPassword(e.target.value)}
               value={password} />
           </div>
+          {
+            error && <p className="login-error">{error}</p>
+          }
+          {
+            success && <p className="login-success">{success}</p>
+          }
           <button className="login-button-ingresar">Ingresar</button>
         </form>
       </section>
@@ -58,3 +87,4 @@ const Login = () => {
 }
 
 export { Login }
+

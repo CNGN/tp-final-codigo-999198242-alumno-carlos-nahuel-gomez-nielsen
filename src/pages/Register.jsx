@@ -85,6 +85,8 @@ const Register = () => {
     if (!email) transporteDeErrores.push("Falta colocar la dirección. ")
     if (!password) transporteDeErrores.push("Falta colocar la contraseña.")
 
+    // si hay nombre se usuario y el nombre de usuario es menor o igual a dos caracteres,
+    // se entra al if. si no hay nombre de usuario en primer lugar, no entra en el if.
     if (username && username.length <= 2) {
       transporteDeErrores.push("El nombre de usuario debe tener más de dos caracteres. ")
     }
@@ -99,8 +101,8 @@ const Register = () => {
 
     // condicion que verifica el formato del correo con una expresion regular (regex).
     // LA EXPRESION REGULAR NO SE VIO EN ESTE CURSO. LA ESTOY SACANDO DE OTRA PARTE.
-    // si hay correo y el correo respeta la expresion regular correspondiente a un correo,
-    // se entra en el if
+    // si hay correo y el correo NO respeta la expresion regular correspondiente a un correo,
+    // se entra en el if. si no hay correo en primer lugar, no entra al if
     if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       // se coloca el mensaje al array
       transporteDeErrores.push("La dirección de correo no es correcta")
@@ -154,6 +156,7 @@ const Register = () => {
         <form className="register-form" onSubmit={handleSubmit} noValidate>
           <div className="register">
             <p className="register-p-nombredeusuario">Username:</p>
+            <p>Ejemplo: juan</p>
             <label className="register"></label>
             <input
               className="register"
@@ -164,6 +167,7 @@ const Register = () => {
           </div>
           <div className="register">
             <p className="register-p-correo">Correo electrónico:</p>
+            <p>Ejemplo: juan@gmail.com</p>
             <label className="register" ></label>
             <input
               className="register"
@@ -174,6 +178,7 @@ const Register = () => {
           </div>
           <div className="register">
             <p className="register-p-contraseña">Contraseña:</p>
+            <p>Ejemplo: afrF3%v</p>
             <label className="register"></label>
             <input
               className="register"
@@ -197,3 +202,32 @@ const Register = () => {
 }
 
 export { Register }
+
+
+
+/*
+
+
+exprecion regular para validar correo.
+
+
+
+^	        Indica el inicio del string.
+
+[^\s@]+	  1+ caracteres que no sean espacios (\s) ni @. Ej: usuario12.
+
+@	        Requiere el carácter @ literal.
+
+[^\s@]+	  1+ caracteres que no sean espacios ni @. Ej: gmail.
+
+\.	      Requiere un punto literal (escapado con \ porque . en regex es "cualquier carácter").
+
+[^\s@]+	  1+ caracteres que no sean espacios ni @. Ej: com, es, net.
+
+$	        Indica el final del string.
+
+
+.test()   METODO. verifica si un string coincide con el patrón definido por la expresión regular. 
+
+
+*/

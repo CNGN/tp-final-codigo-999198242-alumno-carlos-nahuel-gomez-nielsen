@@ -12,6 +12,8 @@ const Home = () => {
   const [descriptionEdit, setDescriptionEdit] = useState("")
   const [categoryEdit, setCategoryEdit] = useState("")
   const [imageEdit, setImageEdit] = useState("")
+  const [error, setError] = useState("")
+  const [success, setSuccess] = useState("")
 
   // PARA LA BARRA DE BUSQUEDA DE PRODUCTOS
   // estados para la barra de busqueda
@@ -68,6 +70,19 @@ const Home = () => {
       image: imageEdit
     }
 
+    // validores de inputs del formulario para actulizar productos.
+    const transporteDeErroresHome = []
+    if (!titleEdit) transporteDeErroresHome.push("Falta colocar titulo.")
+
+
+    if (transporteDeErroresHome.length > 0) {
+      setError(transporteDeErroresHome)
+      setTimeout(() => setError(""), 2000)
+      return
+    }
+
+
+
     try {
       const response = await fetch(`https://fakestoreapi.com/products/${productToEdit.id}`, {
         method: "PUT",
@@ -91,6 +106,10 @@ const Home = () => {
     } catch (error) {
       console.log(error)
     }
+
+
+    setTimeout(() => setSuccess("Producto actualizado con exito"), 2000)
+    setSuccess("")
   }
 
 
@@ -209,6 +228,8 @@ const Home = () => {
                 value={imageEdit}
                 onChange={(e) => setImageEdit(e.target.value)}
               />
+              {user && <p className="home-error">{error}</p>}
+              {user && <p className="home-success">{success}</p>}
               <button>Actualizar</button>
               <button onClick={() => setShowPopup(null)}>Cerrar</button>
             </form>

@@ -34,7 +34,7 @@ const Register = () => {
 
 
 
-
+    /*  
     if (!username || !email || !password) {
       setError("Debes completar todos los campos")
       return
@@ -65,8 +65,53 @@ const Register = () => {
 
     // redirigo a la pagina home
     nagivate("/")
+    */
 
 
+
+    // SISTEMA DE ERRORES ACUMULATIVOS
+
+    // array que va contener diferentes valores de acuerdo a los
+    // errores que sucedan.
+    const transporteDeErrores = []
+
+
+    // para saber si los inputs estan vacios.
+    // en los tres casos se entran en el if si no hay correo.
+    // hay correo (username=true) => (!username=false). En este caso no se entra en el if.
+    // no hay correo (username=true) => (!username=true). En este caso se entra en el if.
+    // y se coloca el mensaje al array.
+    if (!username) transporteDeErrores.push("Falta colocar el nombre de usuario. ")
+    if (!email) transporteDeErrores.push("Falta colocar la dirección. ")
+    if (!password) transporteDeErrores.push("Falta colocar la contraseña.")
+
+
+    // condicion que verifica la cantidad de caracteres en la contraseña.
+    // si hay contraseña y la contraseña es menor e igual a tres caracteres,
+    // se entra en el if.
+    if (password && password.length <= 3) {
+      // se coloca el mensaje al array
+      transporteDeErrores.push("La contraseña debe tener más de tres caracteres")
+    }
+
+    // condicion que verifica el formato del correo con una expresion regular (regex).
+    // LA EXPRESION REGULAR NO SE VIO EN ESTE CURSO. LA ESTOY SACANDO DE OTRA PARTE.
+    // si hay correo y el correo respeta la expresion regular correspondiente a un correo,
+    // se entra en el if
+    if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      // se coloca el mensaje al array
+      transporteDeErrores.push("La dirección de correo no es correcta")
+    }
+
+    // condicion que detecta la longitud del array transporteDeErrores.
+    // si este array tiene contenido, su longuitud va a ser mayor a cero.
+    // por lo tanto, se entra en el if.
+    if (transporteDeErrores.length > 0) {
+      // se coloca el mensaje del array en el estado.
+      setError(transporteDeErrores)
+      // se detiene la continuacion del resto del codigo.
+      return
+    }
 
     const newUser = {
       username,
@@ -74,9 +119,18 @@ const Register = () => {
       password
     }
 
+    // envio datos del nuevo usuario a la funcion register en UserContext.jsx
+    register(username, email, password)
 
+    // imprime por consola el usuario nuevo
     console.log(newUser)
+
+    // se coloca el mensaje al estado
     setSuccess("Usuario registrado con éxito")
+
+    // se redirige despues de dos segundos.
+    // para que se pueda ver el mensaje de "Usuario registrado con éxito".
+    setTimeout(() => nagivate("/"), 2000)
 
     setUsername("")
     setEmail("")
@@ -90,7 +144,9 @@ const Register = () => {
       <section className="register-section">
         <h1 className="register">Registracion de Usuario</h1>
         <h2 className="register">Hola, aqui te registras por primera vez</h2>
-        <form className="register-form" onSubmit={handleSubmit}>
+        {/*noValidate lo puse para que el html del navegador no bloque mi advertencia del
+        correo invalido. si no lo pongo el navegador google chrome impone su propio mensaje*/}
+        <form className="register-form" onSubmit={handleSubmit} noValidate>
           <div className="register">
             <p className="register-p-nombredeusuario">Username:</p>
             <label className="register"></label>
@@ -125,10 +181,10 @@ const Register = () => {
         </form>
 
         {
-          error && <p className="resgister-error">{error}</p>
+          error && <p className="register-error">{error}</p>
         }
         {
-          success && <p className="resgister-success">{success}</p>
+          success && <p className="register-success">{success}</p>
         }
       </section>
     </Layout>

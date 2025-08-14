@@ -186,6 +186,40 @@ textarea {
     background-color: white;
 }
 
-@media (max-width: 480px) {}
+@media (max-width: 480px) {
+    .productos {
+        display: grid;
+        grid-template-columns: 1ft 1ft;
+    }
 
-@media (max-width: 880px) {}
+    .datos-productos {
+        width: 464px;
+        height: auto;
+    }
+
+    .titulo-bienvenida {
+        text-align: center;
+    }
+
+    .parrafo-bienvenida {
+        text-align: center;
+    }
+
+    .seccion-porqueelegirnos {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+
+    }
+
+    li {
+        list-style-type: none;
+    }
+}
+
+@media (max-width: 880px) {
+    .productos {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

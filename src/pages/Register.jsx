@@ -149,7 +149,7 @@ const Register = () => {
   return (
     <Layout>
       <section className="register-section">
-        <h1 className="register">Registracion de Usuario</h1>
+        <h1 className="register">Registración de Usuario</h1>
         <h2 className="register">Hola, aqui te registras por primera vez</h2>
         {/*noValidate lo puse para que el html del navegador no bloque mi advertencia del
         correo invalido. si no lo pongo el navegador google chrome impone su propio mensaje*/}

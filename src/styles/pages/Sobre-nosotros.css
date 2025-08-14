@@ -24,6 +24,11 @@
     background-color: burlywood;
 }
 
-@media (max-width: 480px) {}
+@media (max-width: 480px) {
+    .sobrenosotros {
+        height: 94vh;
+    }
+
+}
 
 @media (max-width: 880px) {}

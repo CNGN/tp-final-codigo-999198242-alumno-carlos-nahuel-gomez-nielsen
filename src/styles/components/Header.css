@@ -1,7 +1,10 @@
 .header-header {
-    background-color: burlywood;
+    background-color: rgb(223, 251, 60);
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
 }
-
 
 
 .header-nav {
@@ -74,6 +77,54 @@
 
 }
 
-@media (max-width: 480px) {}
+@media (max-width: 480px) {
 
-@media (max-width: 880px) {}
+    .header-li-1-user,
+    .header-li-2-user,
+    .header-li-3-user {
+        font-size: 18px;
+        line-height: 30px;
+    }
+
+    .header-button {
+        width: 60px;
+        height: 35px;
+    }
+
+    .header-li-1-nouser,
+    .header-li-2-nouser,
+    .header-li-3-nouser,
+    .header-li-4-nouser {
+        font-size: 14px;
+        line-height: 25px;
+    }
+
+
+
+}
+
+@media (max-width: 880px) {
+
+
+    .header-li-1-user,
+    .header-li-2-user,
+    .header-li-3-user {
+        font-size: 14px;
+        line-height: 25px;
+    }
+
+    .header-button {
+        width: 60px;
+        height: 35px;
+    }
+
+    .header-li-1-nouser,
+    .header-li-2-nouser,
+    .header-li-3-nouser,
+    .header-li-4-nouser {
+        font-size: 14px;
+        line-height: 25px;
+    }
+
+
+}

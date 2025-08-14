@@ -256,7 +256,9 @@ const Home = () => {
             </div>
               {
                 user && <div className="actualizar-borrar-producto">
-                  <button onClick={() => handleOpenEdit(product)} className="actualizar-boton-producto">Actualizar</button>
+                  <button
+                    onClick={() => handleOpenEdit(product)}
+                    className="actualizar-boton-producto">Actualizar</button>
                   <button onClick={() => handleDelete(product.id)} className="Borrar-boton-producto">Borrar</button>
                 </div>
               }
